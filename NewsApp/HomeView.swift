@@ -7,38 +7,50 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
     
     // MARK: - Properties
-    @State var news: [Article] = []
+    @StateObject var vm = ViewModel()
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            ForEach(news, id: \.url) { article in
-                Text(article.title)
+//        VStack {
+//            ForEach(vm.topNews, id: \.url) { article in
+//                Text(article.title)
+//            }
+//        }
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                Text("Top News")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                    .padding(.top)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(vm.topNews, id: \.url) { article in
+                            TopArticleView(article: article)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+               
             }
+            .background(.secondary.opacity(0.3))
         }
-        .onAppear {
-            Task {
-                await fetchNews()
-            }
-        }
+        
     }
     
     // MARK: - Methods
-    func fetchNews() async {
-        do {
-            let articles = try await NetworkManager.shared.getNews()
-            news = articles.articles
-        } catch {
-            if let error = error as? NetworkError {
-                print(error)
-            }
-        }
-    }
+   
 }
 
 #Preview {
     HomeView()
 }
+
+
