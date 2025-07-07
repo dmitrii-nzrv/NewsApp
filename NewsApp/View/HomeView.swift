@@ -32,13 +32,14 @@ struct HomeView: View {
                     .padding(.top)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
+                    HStack(spacing: 12) {
                         ForEach(vm.topNews, id: \.url) { article in
                             TopArticleView(article: article)
                         }
                     }
                     .padding(.horizontal)
                 }
+                .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
                 
                 // MARK: ~ Bottom News
                 Text("Bottom News")
@@ -49,7 +50,7 @@ struct HomeView: View {
                     .padding(.top)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
+                    HStack(spacing: 12) {
                         ForEach(vm.bottomNews, id: \.url) { article in
                             //TopArticleView(article: article)
                             BottomArticleNews(article: article)
@@ -57,9 +58,15 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                 }
+                .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
+
                
             }
             .background(.secondary.opacity(0.3))
+            .refreshable {
+                vm.fetchTopNews()
+                vm.fetchBottomNews()
+            }
         }
         
     }
