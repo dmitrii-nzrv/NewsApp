@@ -8,6 +8,7 @@
 import Foundation
 
 extension Date {
+    // MARK: ~ Methods
     func convertDate() -> String {
         return formatted(.dateTime.hour().minute().day().month().year())
     }

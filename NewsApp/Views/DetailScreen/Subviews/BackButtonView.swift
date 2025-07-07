@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct BackButtonView: View {
-    
-    //MARK: ~ Properties
+    // MARK: ~ Properties
     @Environment(\.dismiss) var dismiss
     
-    //MARK: ~ Body
+    // MARK: ~ Body
     var body: some View {
         Button {
-             dismiss()
+            dismiss()
         } label: {
             ZStack {
                 Circle()
@@ -29,7 +28,6 @@ struct BackButtonView: View {
                     .opacity(0.8)
             }
         }
-
     }
 }
 

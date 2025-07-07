@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum NetworkError: String, Error{
+enum NetworkError: String, Error {
+    // MARK: ~ Cases
     case invalidURL = "Invalid URL"
     case invalidResponse = "Invalid response from the server"
     case invalidData = "The data received from the server is invalid"
-    
 }

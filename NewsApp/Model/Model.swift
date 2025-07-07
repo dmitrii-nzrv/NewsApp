@@ -8,12 +8,14 @@
 import Foundation
 
 struct News: Decodable {
+    // MARK: ~ Properties
     let status: String
     let totalResults: Int
     let articles: [Article]
 }
 
 struct Article: Decodable {
+    // MARK: ~ Properties
     let description: String?
     let url: String
     let title: String

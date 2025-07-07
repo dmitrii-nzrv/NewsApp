@@ -9,15 +9,16 @@ import Foundation
 
 @MainActor
 final class ViewModel: ObservableObject {
-    
     // MARK: ~ Properties
     @Published var topNews: [Article] = []
     @Published var bottomNews: [Article] = []
     
+    // MARK: ~ Init
     init() {
         fetchTopNews()
         fetchBottomNews()
     }
+    
     // MARK: ~ Methods
     func fetchTopNews() {
         Task {
@@ -31,7 +32,6 @@ final class ViewModel: ObservableObject {
             }
         }
     }
-    
     func fetchBottomNews() {
         Task {
             do {

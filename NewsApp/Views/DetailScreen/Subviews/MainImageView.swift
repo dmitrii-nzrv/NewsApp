@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct MainImageView: View {
+    // MARK: ~ Properties
     let article: Article
     
+    // MARK: ~ Body
     var body: some View {
         GeometryReader { geometry in
             if let url = article.urlToImage, let imageURL = URL(string: url) {
@@ -19,11 +21,8 @@ struct MainImageView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                        
                             .offset(y: -geometry.frame(in: .global).minY)
                             .frame(width: SizeConstants.screenWidth, height: geometry.frame(in: .global).minY + SizeConstants.avatarHeight + 10)
-                        
-                        
                     }
                 }
             }
