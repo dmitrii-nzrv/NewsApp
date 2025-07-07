@@ -10,7 +10,7 @@ import Foundation
 final class NetworkManager {
     // MARK: ~ Properties
     static let shared = NetworkManager()
-    let urlNews = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=edd79271e928458c8d570cab46fa51c7"
+
     let decoder = JSONDecoder()
     
     // MARK: ~ Init
@@ -19,8 +19,8 @@ final class NetworkManager {
     }
     
     // MARK: ~ Methods
-    func getNews() async throws -> News {
-        guard let url = URL(string: urlNews) else { throw NetworkError.invalidURL }
+    func getNews(urlString: String) async throws -> News {
+        guard let url = URL(string: urlString) else { throw NetworkError.invalidURL }
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw NetworkError.invalidResponse}
         do {

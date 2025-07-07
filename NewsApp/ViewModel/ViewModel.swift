@@ -12,15 +12,17 @@ final class ViewModel: ObservableObject {
     
     // MARK: ~ Properties
     @Published var topNews: [Article] = []
+    @Published var bottomNews: [Article] = []
     
     init() {
-        fetchNews()
+        fetchTopNews()
+        fetchBottomNews()
     }
     // MARK: ~ Methods
-    func fetchNews() {
+    func fetchTopNews() {
         Task {
             do {
-                let articles = try await NetworkManager.shared.getNews()
+                let articles = try await NetworkManager.shared.getNews(urlString: URLConstants.topNewsURL)
                 self.topNews = articles.articles
             } catch {
                 if let error = error as? NetworkError {
@@ -28,6 +30,18 @@ final class ViewModel: ObservableObject {
                 }
             }
         }
-       
+    }
+    
+    func fetchBottomNews() {
+        Task {
+            do {
+                let articles = try await NetworkManager.shared.getNews(urlString: URLConstants.bottomNewsURL)
+                self.bottomNews = articles.articles
+            } catch {
+                if let error = error as? NetworkError {
+                    print(error)
+                }
+            }
+        }
     }
 }
