@@ -16,5 +16,6 @@ struct TitleView: View {
     var body: some View {
         Text(article.title)
             .titleFont()
+            
     }
 }

@@ -18,7 +18,7 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 // MARK: ~ Top News
-                TitleNewsView(title: "Top News")
+                TitleNewsView(title: "TechCrunch News")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(vm.topNews, id: \.url) { article in
@@ -33,7 +33,7 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
                 
                 // MARK: ~ Bottom News
-                TitleNewsView(title: "Bottom News")
+                TitleNewsView(title: "Wall Street Journal News")
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(vm.bottomNews, id: \.url) { article in
@@ -47,7 +47,7 @@ struct HomeView: View {
                 }
                 .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
             }
-            .background(.secondary.opacity(0.3))
+            .background(.pink.opacity(0.2))
             .refreshable {
                 vm.fetchTopNews()
                 vm.fetchBottomNews()
