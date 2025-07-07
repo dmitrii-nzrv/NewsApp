@@ -13,26 +13,31 @@ struct DetailView: View {
     
     var body: some View {
         
-        ScrollView(.vertical, showsIndicators: false) {
-            MainImageView(article: article)
-            
-            VStack(alignment: .leading, spacing: 20) {
-                Text(article.title)
-                    .titleFont()
+        ZStack(alignment: .topLeading) {
+            ScrollView(.vertical, showsIndicators: false) {
+                MainImageView(article: article)
                 
-                Text(article.description ?? "beda")
-                    .descriptionFont()
-                
-                Text(article.publishedAt.convertDate())
-                    .descriptionFont()
+                VStack(alignment: .leading, spacing: 20) {
+                    Text(article.title)
+                        .titleFont()
+                    
+                    Text(article.description ?? "beda")
+                        .descriptionFont()
+                    
+                    Text(article.publishedAt.convertDate())
+                        .descriptionFont()
+                }
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(.background)
+                .background(GradientAvatarView())
             }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.background)
-            .background(GradientAvatarView())
+            .ignoresSafeArea()
+            .navigationBarHidden(true)
+            
+            BackButtonView()
+                .padding(.leading)
         }
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 }
 
