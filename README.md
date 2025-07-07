@@ -10,8 +10,6 @@ iOS-приложение для чтения новостей.
 - Чистый код, модульная структура
 
 ## 📸 Скриншоты
-<img src="screenshots/main_screen.jpg" width="200" style="display: inline-block; margin-right: 10px;"/>
-<img src="screenshots/details_screen.jpg" width="200" style="display: inline-block; margin-right: 10px;"/>
 
 <table>
 <tr>
