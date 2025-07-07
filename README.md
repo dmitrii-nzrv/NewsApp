@@ -11,4 +11,4 @@ iOS-приложение для чтения новостей.
 
 ## 📸 Скриншоты
 <img src="screenshots/main_screen.jpg" width="250" alt="Главный экран"/>
-<img src="screenshots/detail_screen.jpg" width="250" alt="Детальный экран"/>
+<img src="screenshots/details_screen.jpg" width="250" alt="Детальный экран"/>
