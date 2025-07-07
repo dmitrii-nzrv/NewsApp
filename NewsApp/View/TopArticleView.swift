@@ -23,6 +23,7 @@ struct TopArticleView: View {
                             .scaledToFill()
                             .frame(height: 150)
                             .cornerRadius(10)
+
                     } else {
                         ZStack {
                             Rectangle()
@@ -39,7 +40,11 @@ struct TopArticleView: View {
                         }
                     }
                 }
+               
+
+                
             }
+                
             
             
             VStack(alignment: .leading) {
@@ -59,3 +64,5 @@ struct TopArticleView: View {
         .cornerRadius(10)
     }
 }
+
+

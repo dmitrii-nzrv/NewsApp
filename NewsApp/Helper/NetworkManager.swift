@@ -10,7 +10,7 @@ import Foundation
 final class NetworkManager {
     // MARK: ~ Properties
     static let shared = NetworkManager()
-    let urlNews = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=edd79271e928458c8d570cab46fa51c7"
+    let urlNews = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=edd79271e928458c8d570cab46fa51c7"
     let decoder = JSONDecoder()
     
     // MARK: ~ Init
